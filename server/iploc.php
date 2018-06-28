@@ -2,7 +2,7 @@
 //$ip = $_SERVER['REMOTE_ADDR']; // Recuperation de l'IP du visiteur
 $ip = get_ip();
 function get_country() {
-    $query = @unserialize(file_get_contents('http://ip-api.com/php/')); //connection au serveur de ip-api.com et recuperation des données
+    $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip)); //connection au serveur de ip-api.com et recuperation des données
 if($query && $query['status'] == 'success') 
 {
     //code avec les variables
