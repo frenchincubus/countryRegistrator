@@ -1,3 +1,8 @@
+<?php
+    require('server/iploc.php');
+    $country = get_country();
+?>
+
 <!DOCTYPE html>
  <html>
  <head>
@@ -43,12 +48,12 @@
         <div class="form-group">
             <label for="country">Pays</label>
             <select name="country" id="country" class="form-control" required>
-                <option id="pays" selected></option>
+                <option id="pays" value="<?= $country['country']?>" selected><?= $country['country']?></option>
                 <div class="dropdown-divider"></div>
             </select>
         </div>
         <div class="form-group">
-            <input type="text" name="region" id="region" readonly hidden>
+            <input type="text" name="region" id="region" value="<?= $country['region']?>" readonly hidden>
         </div>
         <div class="form-group">
             <label for="job">Profession</label>
