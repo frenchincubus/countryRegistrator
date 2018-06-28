@@ -2,9 +2,9 @@
 $ip = $_SERVER['REMOTE_ADDR']; // Recuperation de l'IP du visiteur
 // $ip = get_ip();
 //$ip = get_ip_address();
-foreach ($_SERVER as $key => $value) {
-	echo $key .' '.$value. "<br>";
-}
+// foreach ($_SERVER as $key => $value) {
+// 	echo $key .' '.$value. "<br>";
+// }
 
 function get_country() {
     $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip)); //connection au serveur de ip-api.com et recuperation des données

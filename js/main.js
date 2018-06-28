@@ -25,19 +25,19 @@ var ajaxGet = (url, callback) => {
   *  use the client IP by default and send back his country 
   */
 
-//  ajaxGet('http://ip-api.com/json', response => {
-//      let reponse = JSON.parse(response);
-//      if (reponse.status == 'success') {
-//         let country = reponse.country;
-//         var pays = document.getElementById('pays');
-//         var region = document.getElementById('region');
-//         console.log(country);
-//         pays.value = country;
-//         pays.innerText = country;
-//         region.value = reponse.regionName;
-//      }
+ ajaxGet('http://ip-api.com/json', response => {
+     let reponse = JSON.parse(response);
+     if (reponse.status == 'success') {
+        let country = reponse.country;
+        var pays = document.getElementById('pays');
+        var region = document.getElementById('region');
+        console.log(country);
+        pays.value = country;
+        pays.innerText = country;
+        region.value = reponse.regionName;
+     }
     
-//  });
+ });
 
 /*
 *   API of countries field filling
