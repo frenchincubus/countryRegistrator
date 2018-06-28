@@ -1,7 +1,11 @@
 <?php
-$ip = $_REQUEST['REMOTE_ADDR']; // Recuperation de l'IP du visiteur
+$ip = $_SERVER['REMOTE_ADDR']; // Recuperation de l'IP du visiteur
 // $ip = get_ip();
 //$ip = get_ip_address();
+foreach ($_SERVER as $key => $value) {
+	echo $key .' '.$value. "<br>";
+}
+
 function get_country() {
     $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip)); //connection au serveur de ip-api.com et recuperation des données
 if($query && $query['status'] == 'success') 
@@ -19,20 +23,20 @@ if($query && $query['status'] == 'success')
 }
 
 
-// function get_ip() {
-// 	// IP si internet partagé
-// 	if (isset($_SERVER['HTTP_CLIENT_IP'])) {
-// 		return $_SERVER['HTTP_CLIENT_IP'];
-// 	}
-// 	// IP derrière un proxy
-// 	elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-// 		return $_SERVER['HTTP_X_FORWARDED_FOR'];
-// 	}
-// 	// Sinon : IP normale
-// 	else {
-// 		return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
-//     }
-// }
+function get_ip() {
+	// IP si internet partagé
+	if (isset($_SERVER['HTTP_CLIENT_IP'])) {
+		return $_SERVER['HTTP_CLIENT_IP'];
+	}
+	// IP derrière un proxy
+	elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		return $_SERVER['HTTP_X_FORWARDED_FOR'];
+	}
+	// Sinon : IP normale
+	else {
+		return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
+    }
+}
 
 // function get_ip_address() {
 // 	if ( isset( $_SERVER['HTTP_X_REAL_IP'] ) ) {
